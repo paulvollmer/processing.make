@@ -32,7 +32,7 @@ MAKEFILE_VERSION = "0.0.2b"
 # -----------------------------------------------------------------------------
 
 ifndef SKETCH_DIRECTORY
-SKETCH_DIRECTORY = $(PWD)
+SKETCH_DIRECTORY = ${CURDIR}
 endif
 
 ifndef OUTPUT_FOLDERNAME
