@@ -77,55 +77,6 @@ EXPORT_WINDOWS64_FOLDERNAME = $(EXPORT_WINDOWS_FOLDERNAME)64
 endif
 
 
-# Export sketch as Linux, Mac or Windows application
-# -----------------------------------------------------------------------------
-
-applicationLinux32:= \
-	processing-java \
-	--sketch=$(SKETCH_DIRECTORY) \
-	--output=$(SKETCH_DIRECTORY)/$(EXPORT_FOLDERNAME)/$(EXPORT_LINUX32_FOLDERNAME) \
-	--export \
-	--platform=linux \
-	--bits=32 \
-	--force
-
-applicationLinux64:= \
-	processing-java \
-	--sketch=$(SKETCH_DIRECTORY) \
-	--output=$(SKETCH_DIRECTORY)/$(EXPORT_FOLDERNAME)/$(EXPORT_LINUX64_FOLDERNAME) \
-	--export \
-	--platform=linux \
-	--bits=64 \
-	--force
-
-applicationMac:= \
-	processing-java \
-	--sketch=$(SKETCH_DIRECTORY) \
-	--output=$(SKETCH_DIRECTORY)/$(EXPORT_FOLDERNAME)/$(EXPORT_MACOSX_FOLDERNAME) \
-	--export \
-	--platform=macosx \
-	--force
-
-applicationWin32:= \
-	processing-java \
-	--sketch=$(SKETCH_DIRECTORY) \
-	--output=$(SKETCH_DIRECTORY)/$(EXPORT_FOLDERNAME)/$(EXPORT_WINDOWS32_FOLDERNAME) \
-	--export \
-	--platform=windows \
-	--bits=32 \
-	--force
-
-applicationWin64:= \
-	processing-java \
-	--sketch=$(SKETCH_DIRECTORY) \
-	--output=$(SKETCH_DIRECTORY)/$(EXPORT_FOLDERNAME)/$(EXPORT_WINDOWS64_FOLDERNAME) \
-	--export \
-	--platform=windows \
-	--bits=64 \
-	--force
-
-
-
 
 # The build, run and present flags
 # -----------------------------------------------------------------------------
@@ -142,37 +93,58 @@ build:
 
 
 # The export flags
+# Export sketch as Linux, Mac or Windows application
 # -----------------------------------------------------------------------------
 
 .PHONY: export
-export:
-	$(applicationLinux32)
-	$(applicationLinux64)
-	$(applicationMac)
-	$(applicationWin32)
-	$(applicationWin64)
+export: exportLinux exportMac exportWin
 
 .PHONY: exportLinux exportLinux32 exportLinux64
-exportLinux:
-	$(applicationLinux32)
-	$(applicationLinux64)
+exportLinux: exportLinux32 exportLinux64
 exportLinux32:
-	$(applicationLinux32)
+	processing-java \
+	--sketch=$(SKETCH_DIRECTORY) \
+	--output=$(SKETCH_DIRECTORY)/$(EXPORT_FOLDERNAME)/$(EXPORT_LINUX32_FOLDERNAME) \
+	--export \
+	--platform=linux \
+	--bits=32 \
+	--force
 exportLinux64:
-	$(applicationLinux64)
+	processing-java \
+	--sketch=$(SKETCH_DIRECTORY) \
+	--output=$(SKETCH_DIRECTORY)/$(EXPORT_FOLDERNAME)/$(EXPORT_LINUX64_FOLDERNAME) \
+	--export \
+	--platform=linux \
+	--bits=64 \
+	--force
 
 .PHONY:  exportMac
 exportMac:
-	$(applicationMac)
+	processing-java \
+	--sketch=$(SKETCH_DIRECTORY) \
+	--output=$(SKETCH_DIRECTORY)/$(EXPORT_FOLDERNAME)/$(EXPORT_MACOSX_FOLDERNAME) \
+	--export \
+	--platform=macosx \
+	--force
 
 .PHONY: exportWin exportWin32 exportWin64
-exportWin:
-	$(applicationWin32)
-	$(applicationWin64)
+exportWin: exportWin32 exportWin64
 exportWin32:
-	$(applicationWin32)
+	processing-java \
+	--sketch=$(SKETCH_DIRECTORY) \
+	--output=$(SKETCH_DIRECTORY)/$(EXPORT_FOLDERNAME)/$(EXPORT_WINDOWS32_FOLDERNAME) \
+	--export \
+	--platform=windows \
+	--bits=32 \
+	--force
 exportWin64:
-	$(applicationWin64)
+	processing-java \
+	--sketch=$(SKETCH_DIRECTORY) \
+	--output=$(SKETCH_DIRECTORY)/$(EXPORT_FOLDERNAME)/$(EXPORT_WINDOWS64_FOLDERNAME) \
+	--export \
+	--platform=windows \
+	--bits=64 \
+	--force
 
 
 # The cleaning flags
