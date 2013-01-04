@@ -177,16 +177,16 @@ exportWin64:
 .PHONY: clean cleanOutput cleanExport
 clean:
 	@echo "Delete '$(OUTPUT_DIRECTORY)' and '$(EXPORT_FOLDERNAME)' directory"
-	$(shell rm -rf $(OUTPUT_DIRECTORY))
-	$(shell rm -rf $(EXPORT_FOLDERNAME))
+	$(shell rm -rf $(SKETCH_DIRECTORY)/$(OUTPUT_DIRECTORY))
+	$(shell rm -rf $(SKETCH_DIRECTORY)/$(EXPORT_FOLDERNAME))
 
 cleanOutput:
 	@echo "Delete '$(OUTPUT_DIRECTORY)' directory"
-	$(shell rm -rf $(OUTPUT_DIRECTORY))
+	$(shell rm -rf $(SKETCH_DIRECTORY)/$(OUTPUT_DIRECTORY))
 
 cleanExport:
 	@echo "Delete '$(EXPORT_FOLDERNAME)' directory"
-	$(shell rm -rf $(EXPORT_FOLDERNAME))
+	$(shell rm -rf $(SKETCH_DIRECTORY)/$(EXPORT_FOLDERNAME))
 
 
 
