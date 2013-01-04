@@ -1,3 +1,4 @@
+#
 # processing_makefile is released under the MIT License.
 #
 # Copyright (c) 2012, Paul Vollmer http://www.wrong-entertainment.com
@@ -19,6 +20,7 @@
 # LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 # THE SOFTWARE.
+#
 
 
 MAKEFILE_NAME = "Processing Makefile"
@@ -26,13 +28,12 @@ MAKEFILE_VERSION = "0.0.2b"
 
 
 
-# Processing sourche and output default parameter
+# Processing sketch and output default parameter
 # -----------------------------------------------------------------------------
 
-#ifndef SKETCH_DIRECTORY
-#SKETCH_DIRECTORY = $(shell $(dirname $0))
-#echo $(error "You need to set the the Processing sketch directory")
-#endif
+ifndef SKETCH_DIRECTORY
+SKETCH_DIRECTORY = $(PWD)
+endif
 
 ifdef SKETCH_DIRECTORY
 ifndef OUTPUT_DIRECTORY
@@ -42,31 +43,31 @@ endif
 
 
 
-# Processing export application default directory names
+# Processing export application default folder names
 # -----------------------------------------------------------------------------
 
-ifndef EXPORT_DIRECTORY
-EXPORT_DIRECTORY = export
+ifndef EXPORT_FOLDERNAME
+EXPORT_FOLDERNAME = export
 endif
 
-ifndef EXPORT_LINUX32_DIRECTORY
-EXPORT_LINUX32_DIRECTORY = application.linux32
+ifndef EXPORT_LINUX32_FOLDERNAME
+EXPORT_LINUX32_FOLDERNAME = application.linux32
 endif
 
-ifndef EXPORT_LINUX64_DIRECTORY
-EXPORT_LINUX64_DIRECTORY = application.linux64
+ifndef EXPORT_LINUX64_FOLDERNAME
+EXPORT_LINUX64_FOLDERNAME = application.linux64
 endif
 
-ifndef EXPORT_MACOSX_DIRECTORY
-EXPORT_MACOSX_DIRECTORY = application.macosx
+ifndef EXPORT_MACOSX_FOLDERNAME
+EXPORT_MACOSX_FOLDERNAME = application.macosx
 endif
 
-ifndef EXPORT_WINDOWS32_DIRECTORY
-EXPORT_WINDOWS32_DIRECTORY = application.windows32
+ifndef EXPORT_WINDOWS32_FOLDERNAME
+EXPORT_WINDOWS32_FOLDERNAME = application.windows32
 endif
 
-ifndef EXPORT_WINDOWS64_DIRECTROY
-EXPORT_WINDOWS64_DIRECTROY = application.windows64
+ifndef EXPORT_WINDOWS64_FOLDERNAME
+EXPORT_WINDOWS64_FOLDERNAME = application.windows64
 endif
 
 
@@ -76,7 +77,7 @@ endif
 applicationLinux32:= \
 	processing-java \
 	--sketch=$(SKETCH_DIRECTORY) \
-	--output=$(SKETCH_DIRECTORY)/$(EXPORT_DIRECTORY)/$(EXPORT_LINUX32_DIRECTORY) \
+	--output=$(SKETCH_DIRECTORY)/$(EXPORT_FOLDERNAME)/$(EXPORT_LINUX32_FOLDERNAME) \
 	--export \
 	--platform=linux \
 	--bits=32 \
@@ -85,7 +86,7 @@ applicationLinux32:= \
 applicationLinux64:= \
 	processing-java \
 	--sketch=$(SKETCH_DIRECTORY) \
-	--output=$(SKETCH_DIRECTORY)/$(EXPORT_DIRECTORY)/$(EXPORT_LINUX64_DIRECTORY) \
+	--output=$(SKETCH_DIRECTORY)/$(EXPORT_FOLDERNAME)/$(EXPORT_LINUX64_FOLDERNAME) \
 	--export \
 	--platform=linux \
 	--bits=64 \
@@ -94,7 +95,7 @@ applicationLinux64:= \
 applicationMac:= \
 	processing-java \
 	--sketch=$(SKETCH_DIRECTORY) \
-	--output=$(SKETCH_DIRECTORY)/$(EXPORT_DIRECTORY)/$(EXPORT_MACOSX_DIRECTORY) \
+	--output=$(SKETCH_DIRECTORY)/$(EXPORT_FOLDERNAME)/$(EXPORT_MACOSX_FOLDERNAME) \
 	--export \
 	--platform=macosx \
 	--force
@@ -102,7 +103,7 @@ applicationMac:= \
 applicationWin32:= \
 	processing-java \
 	--sketch=$(SKETCH_DIRECTORY) \
-	--output=$(SKETCH_DIRECTORY)/$(EXPORT_DIRECTORY)/$(EXPORT_WINDOWS32_DIRECTORY) \
+	--output=$(SKETCH_DIRECTORY)/$(EXPORT_FOLDERNAME)/$(EXPORT_WINDOWS32_FOLDERNAME) \
 	--export \
 	--platform=windows \
 	--bits=32 \
@@ -111,7 +112,7 @@ applicationWin32:= \
 applicationWin64:= \
 	processing-java \
 	--sketch=$(SKETCH_DIRECTORY) \
-	--output=$(SKETCH_DIRECTORY)/$(EXPORT_DIRECTORY)/$(EXPORT_WINDOWS64_DIRECTROY) \
+	--output=$(SKETCH_DIRECTORY)/$(EXPORT_FOLDERNAME)/$(EXPORT_WINDOWS64_FOLDERNAME) \
 	--export \
 	--platform=windows \
 	--bits=64 \
@@ -173,17 +174,17 @@ exportWin64:
 
 .PHONY: clean cleanOutput cleanExport
 clean:
-	@echo "Delete '$(OUTPUT_DIRECTORY)' and '$(EXPORT_DIRECTORY)' directory"
+	@echo "Delete '$(OUTPUT_DIRECTORY)' and '$(EXPORT_FOLDERNAME)' directory"
 	$(shell rm -rf $(OUTPUT_DIRECTORY))
-	$(shell rm -rf $(EXPORT_DIRECTORY))
+	$(shell rm -rf $(EXPORT_FOLDERNAME))
 
 cleanOutput:
 	@echo "Delete '$(OUTPUT_DIRECTORY)' directory"
 	$(shell rm -rf $(OUTPUT_DIRECTORY))
 
 cleanExport:
-	@echo "Delete '$(EXPORT_DIRECTORY)' directory"
-	$(shell rm -rf $(EXPORT_DIRECTORY))
+	@echo "Delete '$(EXPORT_FOLDERNAME)' directory"
+	$(shell rm -rf $(EXPORT_FOLDERNAME))
 
 
 
@@ -196,12 +197,9 @@ help:
 	@echo ""
 	@echo "Usage:"
 	@echo "    make                   Same as 'make run' command."
-	@echo ""
 	@echo "    make run               Preprocess, compile, and run a sketch."
 	@echo "    make present           Preprocess, compile, and run a sketch full screen."
-	@echo ""
 	@echo "    make build             Preprocess and compile a sketch into .class files."
-	@echo ""
 	@echo "    make export            Export as Linux, MacOS and Windows application."
 	@echo "    make exportLinux       Export as Linux application."
 	@echo "    make exportLinux32     Export as Linux 32-bit application."
@@ -210,13 +208,20 @@ help:
 	@echo "    make exportWin         Export as Windows application."
 	@echo "    make exportWin32       Export as Windows 32-bit application."
 	@echo "    make exportWin64       Export as Windows 64-bit application."
-	@echo ""
 	@echo "    make clean             Remove the output and export directory."
 	@echo "    make cleanOutput       Remove the output directory."
 	@echo "    make cleanExport       Remove the export directory."
-	@echo ""
 	@echo "    make help              Show this help text."
 	@echo "    make version           Get the Version of the $(MAKEFILE_NAME)."
+	@echo ""
+	@echo "Current Parameter:"
+	@echo "    SKETCH_DIRECTORY              = $(SKETCH_DIRECTORY)"
+	@echo "    EXPORT_FOLDERNAME             = $(EXPORT_FOLDERNAME)"
+	@echo "    EXPORT_LINUX32_FOLDERNAME     = $(EXPORT_LINUX32_FOLDERNAME)"
+	@echo "    EXPORT_LINUX64_FOLDERNAME     = $(EXPORT_LINUX64_FOLDERNAME)"
+	@echo "    EXPORT_MACOSX_FOLDERNAME      = $(EXPORT_MACOSX_FOLDERNAME)"
+	@echo "    EXPORT_WINDOWS32_FOLDERNAME   = $(EXPORT_WINDOWS32_FOLDERNAME)"
+	@echo "    EXPORT_WINDOWS64_FOLDERNAME   = $(EXPORT_WINDOWS64_FOLDERNAME)"
 
 version:
 	@echo $(MAKEFILE_VERSION)
