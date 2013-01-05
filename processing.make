@@ -24,7 +24,7 @@
 
 
 MAKEFILE_NAME = "Processing Makefile"
-MAKEFILE_VERSION = "0.0.2b"
+MAKEFILE_VERSION = "0.1.0"
 
 
 
@@ -78,19 +78,40 @@ endif
 
 
 
+define CLEAN_RULE
+	@echo "Delete '${1}' directory"
+	$(shell rm -rf ${1})
+endef
+
+
+define BUILD_RULE
+	processing-java --sketch=$(SKETCH_DIRECTORY) --output=$(OUTPUT_DIRECTORY) --${1} --force
+endef
+
+
+define EXPORT_RULE
+	processing-java \
+	--sketch=$(SKETCH_DIRECTORY) \
+	--output=$(SKETCH_DIRECTORY)/$(EXPORT_FOLDERNAME)/${1} \
+	--export \
+	--platform=${2} ${3} \
+	--force
+endef
+
+
 # The build, run and present flags
 # -----------------------------------------------------------------------------
 
 .PHONY: build run present
 run:
-	processing-java --sketch=$(SKETCH_DIRECTORY) --output=$(OUTPUT_DIRECTORY) --run --force
-
+	$(call BUILD_RULE,run)
+	
 present:
-	processing-java --sketch=$(SKETCH_DIRECTORY) --output=$(OUTPUT_DIRECTORY) --present --force
-
+	$(call BUILD_RULE,present)
+	
 build:
-	processing-java --sketch=$(SKETCH_DIRECTORY) --output=$(OUTPUT_DIRECTORY) --build --force
-
+	$(call BUILD_RULE,build)
+	
 
 # The export flags
 # Export sketch as Linux, Mac or Windows application
@@ -102,49 +123,20 @@ export: exportLinux exportMac exportWin
 .PHONY: exportLinux exportLinux32 exportLinux64
 exportLinux: exportLinux32 exportLinux64
 exportLinux32:
-	processing-java \
-	--sketch=$(SKETCH_DIRECTORY) \
-	--output=$(SKETCH_DIRECTORY)/$(EXPORT_FOLDERNAME)/$(EXPORT_LINUX32_FOLDERNAME) \
-	--export \
-	--platform=linux \
-	--bits=32 \
-	--force
+	$(call EXPORT_RULE,$(EXPORT_LINUX32_FOLDERNAME),linux,--bits=32)
 exportLinux64:
-	processing-java \
-	--sketch=$(SKETCH_DIRECTORY) \
-	--output=$(SKETCH_DIRECTORY)/$(EXPORT_FOLDERNAME)/$(EXPORT_LINUX64_FOLDERNAME) \
-	--export \
-	--platform=linux \
-	--bits=64 \
-	--force
-
+	$(call EXPORT_RULE,$(EXPORT_LINUX64_FOLDERNAME),linux,--bits=64)
+	
 .PHONY:  exportMac
 exportMac:
-	processing-java \
-	--sketch=$(SKETCH_DIRECTORY) \
-	--output=$(SKETCH_DIRECTORY)/$(EXPORT_FOLDERNAME)/$(EXPORT_MACOSX_FOLDERNAME) \
-	--export \
-	--platform=macosx \
-	--force
-
+	$(call EXPORT_RULE,$(EXPORT_MACOSX_FOLDERNAME),macosx)
+	
 .PHONY: exportWin exportWin32 exportWin64
 exportWin: exportWin32 exportWin64
 exportWin32:
-	processing-java \
-	--sketch=$(SKETCH_DIRECTORY) \
-	--output=$(SKETCH_DIRECTORY)/$(EXPORT_FOLDERNAME)/$(EXPORT_WINDOWS32_FOLDERNAME) \
-	--export \
-	--platform=windows \
-	--bits=32 \
-	--force
+	$(call EXPORT_RULE,$(EXPORT_WINDOWS32_FOLDERNAME),windows,--bits=32)
 exportWin64:
-	processing-java \
-	--sketch=$(SKETCH_DIRECTORY) \
-	--output=$(SKETCH_DIRECTORY)/$(EXPORT_FOLDERNAME)/$(EXPORT_WINDOWS64_FOLDERNAME) \
-	--export \
-	--platform=windows \
-	--bits=64 \
-	--force
+	$(call EXPORT_RULE,$(EXPORT_WINDOWS64_FOLDERNAME),windows,--bits=64)
 
 
 # The cleaning flags
@@ -152,18 +144,14 @@ exportWin64:
 
 .PHONY: clean cleanOutput cleanExport
 clean:
-	@echo "Delete '$(OUTPUT_DIRECTORY)' and '$(EXPORT_FOLDERNAME)' directory"
-	$(shell rm -rf $(OUTPUT_DIRECTORY))
-	$(shell rm -rf $(SKETCH_DIRECTORY)/$(EXPORT_FOLDERNAME))
+	$(call CLEAN_RULE, $(OUTPUT_DIRECTORY))
+	$(call CLEAN_RULE, $(SKETCH_DIRECTORY)/$(EXPORT_FOLDERNAME))
 
 cleanOutput:
-	@echo "Delete '$(OUTPUT_DIRECTORY)' directory"
-	$(shell rm -rf $(OUTPUT_DIRECTORY))
+	$(call CLEAN_RULE, $(OUTPUT_DIRECTORY))
 
 cleanExport:
-	@echo "Delete '$(EXPORT_FOLDERNAME)' directory"
-	$(shell rm -rf $(SKETCH_DIRECTORY)/$(EXPORT_FOLDERNAME))
-
+	$(call CLEAN_RULE, $(SKETCH_DIRECTORY)/$(EXPORT_FOLDERNAME))
 
 
 # The help and version flags
