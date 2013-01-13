@@ -1,6 +1,7 @@
 # processing_makefile
 
 A simple Makefile to build, run and export Processing sketches.  
+[Watch the video to see how it works.](http://vimeo.com/57167905)
   
 **MacOSX**  
 To activate the Processing commandline tool go to ```Tools -> Install "processing-java"```.  
