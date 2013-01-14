@@ -18,4 +18,4 @@ EXPORT_WINDOWS_FOLDERNAME = win
 EXPORT_LINUX32_FOLDERNAME = linux32bit
 EXPORT_LINUX64_FOLDERNAME = linux
 
-include ../../processing.make
+include ../../../processing.make

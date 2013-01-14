@@ -1,5 +1,5 @@
 #
-# example1_simple
+# basic_run
 #
 # This Makefile is the simplest solution to use
 # processing.make. It contains a oneliner that includes
@@ -13,4 +13,4 @@
 #
 
 
-include ../../processing.make
+include ../../../processing.make

@@ -20,4 +20,4 @@ SKETCH_DIRECTORY = $(PWD)/path/to/your/processing/sketch
 #SKETCH_DIRECTORY = /Users/your_name/path/to/your/processing/sketch
 
 
-include ../../processing.make
+include ../../../processing.make
