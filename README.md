@@ -1,7 +1,12 @@
-# processing_makefile
+# processing.make
 
 A simple Makefile to build, run and export Processing sketches.  
 [Watch the video to see how it works.](http://vimeo.com/57167905)
+  
+Clone this Project with Git by running:
+```
+git clone git@github.com:WrongEntertainment/processing.make.git
+```
   
 **MacOSX**  
 To activate the Processing commandline tool go to ```Tools -> Install "processing-java"```.  
@@ -25,18 +30,20 @@ Linux ???
 2.0b6 (Java Mode: 0214)  
 
 **Issues and Bugs**  
-You can find a list of all known bugs at [GitHub](https://github.com/wrongentertainment/processing_makefile/issues). Please report if you find an unknown bug.  
+You can find a list of all known bugs at [GitHub](https://github.com/wrongentertainment/processing.make/issues). Please report if you find an unknown bug.  
 
 
 ## ToDo
 **run and build**  
-- Add javac to build and run (at the moment the makefile use processing-java cli)
-**export**   
-- Change Application Icon
+- Add javac to build and run (at the moment the makefile use processing-java cli)  
+
+**export**  
+- Change Application Icon  
+
 **exportMac**  
 - Add Credits.txt
 - Customize Application info.plist
 
 
 ## License 
-processing_makefile is released under the MIT License: http://www.opensource.org/licenses/MIT
+processing.make is released under the MIT License: http://www.opensource.org/licenses/MIT
