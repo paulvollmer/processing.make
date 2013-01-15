@@ -11,4 +11,4 @@ EXPORT_FOLDERNAME = distribution
 EXPORT_MACOSX_FOLDERNAME = mac
 
 
-include ../../processing.make
+include ../../../processing.make

@@ -6,8 +6,8 @@
 # This file is part of the processing_makefile project
 #
 
-APP_NAME=example4_scripts
-APP_VERSION=0.0.3
+APP_NAME=export_and_zip
+APP_VERSION=0.0.1
 
 
 make exportMac
