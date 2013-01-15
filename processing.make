@@ -27,6 +27,10 @@ MAKEFILE_NAME = "Processing Makefile"
 MAKEFILE_VERSION = "0.1.0"
 
 
+# make shell executable
+SHELL=/bin/sh
+
+
 
 # Processing sketch and output default parameter
 # -----------------------------------------------------------------------------
