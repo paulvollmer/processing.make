@@ -3,11 +3,11 @@
 #
 # Export Application (Linux, MacOSX, Windows) and zip Package.
 #
-# This file is part of the processing_makefile project
+# This file is part of the processing.make project.
 #
 
-APP_NAME=example4_scripts
-APP_VERSION=0.0.3
+APP_NAME=export_and_zip
+APP_VERSION=0.0.1
 
 
 make exportMac
