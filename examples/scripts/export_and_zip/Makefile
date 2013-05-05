@@ -1,7 +1,7 @@
 #
 # example3_custom
 #
-# This file is part of the processing_makefile project
+# This file is part of the processing.make project.
 #
 
 # Custom export directory
@@ -11,4 +11,4 @@ EXPORT_FOLDERNAME = distribution
 EXPORT_MACOSX_FOLDERNAME = mac
 
 
-include ../../processing.make
+include ../../../processing.make

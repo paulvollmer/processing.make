@@ -1,7 +1,7 @@
 #
-# example3_custom
+# custom_parameter example
 #
-# This file is part of the processing_makefile project
+# This file is part of the processing.make project.
 #
 
 # Custom export directory
@@ -18,4 +18,4 @@ EXPORT_WINDOWS_FOLDERNAME = win
 EXPORT_LINUX32_FOLDERNAME = linux32bit
 EXPORT_LINUX64_FOLDERNAME = linux
 
-include ../../processing.make
+include ../../../processing.make

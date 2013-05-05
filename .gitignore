@@ -10,3 +10,7 @@
 *application.macosx/
 *application.windows32/
 *application.windows64/
+
+# Doxygen
+*html/
+*latex/

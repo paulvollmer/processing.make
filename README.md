@@ -33,17 +33,5 @@ Linux ???
 You can find a list of all known bugs at [GitHub](https://github.com/wrongentertainment/processing.make/issues). Please report if you find an unknown bug.  
 
 
-## ToDo
-**run and build**  
-- Add javac to build and run (at the moment the makefile use processing-java cli)  
-
-**export**  
-- Change Application Icon  
-
-**exportMac**  
-- Add Credits.txt
-- Customize Application info.plist
-
-
 ## License 
 processing.make is released under the MIT License: http://www.opensource.org/licenses/MIT

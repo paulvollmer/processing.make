@@ -1,12 +1,12 @@
 #
-# example2_custom_path
+# custom_path example
 #
 # If you want to run (or build, export etc.) a sketch
 # at an other directory you can use the
 # "SKETCH_DIRECTORY" parameter to set the path.
 #
 #
-# This file is part of the processing_makefile project
+# This file is part of the processing.make project.
 #
 
 
@@ -20,4 +20,4 @@ SKETCH_DIRECTORY = $(PWD)/path/to/your/processing/sketch
 #SKETCH_DIRECTORY = /Users/your_name/path/to/your/processing/sketch
 
 
-include ../../processing.make
+include ../../../processing.make
