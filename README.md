@@ -20,7 +20,7 @@ GNU Make
 
 
 **Current Version:**  
-0.1.0 (stable and versioned using [semantic versioning](http://semver.org/))   
+0.1.1 (stable and versioned using [semantic versioning](http://semver.org/))   
   
 **Tested Platform:**  
 MacOS 10.7   
