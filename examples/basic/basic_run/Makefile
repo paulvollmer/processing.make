@@ -1,5 +1,5 @@
 #
-# basic_run
+# basic_run example
 #
 # This Makefile is the simplest solution to use
 # processing.make. It contains a oneliner that includes

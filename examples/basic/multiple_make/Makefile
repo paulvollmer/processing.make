@@ -1,5 +1,5 @@
 #
-# multiple_make
+# multiple_make example
 #
 #
 # This file is part of the processing.make project.

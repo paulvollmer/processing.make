@@ -1,5 +1,5 @@
 #
-# example3_custom
+# custom_parameter example
 #
 # This file is part of the processing.make project.
 #

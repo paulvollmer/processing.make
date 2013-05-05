@@ -1,5 +1,5 @@
 #
-# example2_custom_path
+# custom_path example
 #
 # If you want to run (or build, export etc.) a sketch
 # at an other directory you can use the

@@ -1,5 +1,5 @@
 #
-# doxygen example.
+# doxygen example
 #
 #
 # This file is part of the processing.make project.
