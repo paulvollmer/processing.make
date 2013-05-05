@@ -1,7 +1,9 @@
 # processing.make
 
 A simple Makefile to build, run and export Processing sketches.  
-[Watch the video to see how it works.](http://vimeo.com/57167905)
+
+[Watch the video to see how it works.](http://vimeo.com/57167905)  
+[![](http://wrongentertainment.github.io/processing.make/vimeo_video.png)](http://vimeo.com/57167905)
   
 Clone this Project with Git by running:
 ```
@@ -20,7 +22,7 @@ GNU Make
 
 
 **Current Version:**  
-0.1.0 (stable and versioned using [semantic versioning](http://semver.org/))   
+0.1.1 (stable and versioned using [semantic versioning](http://semver.org/))   
   
 **Tested Platform:**  
 MacOS 10.7   
