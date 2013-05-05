@@ -1,6 +1,5 @@
 #
 # processing.make.extensions - template.make
-# version 0.1.0
 #
 # General information:
 # This template can be used to create a new extension a bit faster.
