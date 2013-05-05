@@ -1,7 +1,7 @@
 #
-# processing_makefile is released under the MIT License.
+# processing.make is released under the MIT License.
 #
-# Copyright (c) 2012, Paul Vollmer http://www.wrong-entertainment.com
+# Copyright (c) 2012-2013, Paul Vollmer http://www.wrong-entertainment.com
 #
 # Permission is hereby granted, free of charge, to any person obtaining a copy
 # of this software and associated documentation files (the "Software"), to deal
@@ -23,7 +23,7 @@
 #
 
 
-MAKEFILE_NAME = "Processing Makefile"
+MAKEFILE_NAME = "processing.make"
 MAKEFILE_VERSION = "0.1.0"
 
 

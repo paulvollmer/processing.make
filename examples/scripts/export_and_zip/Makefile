@@ -1,7 +1,7 @@
 #
 # example3_custom
 #
-# This file is part of the processing_makefile project
+# This file is part of the processing.make project.
 #
 
 # Custom export directory

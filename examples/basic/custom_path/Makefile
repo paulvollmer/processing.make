@@ -6,7 +6,7 @@
 # "SKETCH_DIRECTORY" parameter to set the path.
 #
 #
-# This file is part of the processing_makefile project
+# This file is part of the processing.make project.
 #
 
 

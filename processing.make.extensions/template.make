@@ -26,8 +26,7 @@
 #    to create phonys.
 #
 #
-# This file is part of the processing.make project
-# version 0.1.0
+# This file is part of the processing.make project.
 #
 
 

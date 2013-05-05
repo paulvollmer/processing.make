@@ -2,8 +2,7 @@
 # Add the template extension to our Makefile.
 #
 #
-# This file is part of the processing_makefile project
-# version 0.1.0
+# This file is part of the processing.make project.
 #
 
 BASE_DIR=../../../
