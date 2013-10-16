@@ -37,3 +37,7 @@ You can find a list of all known bugs at [GitHub](https://github.com/wrongentert
 
 ## License 
 processing.make is released under the MIT License: http://www.opensource.org/licenses/MIT
+
+
+[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/WrongEntertainment/processing.make/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
+
